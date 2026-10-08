@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RunSmart — подбор пульсометра</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#b72619;--red-d:#9a1f14;--z:1}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Open Sans",Arial,sans-serif;color:#111;background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+img{display:block}
+.in{position:relative;margin:0 auto;zoom:var(--z)}
+.abs{position:absolute}
+.cf{font-family:"Comfortaa","Open Sans",sans-serif}
+.btn{position:absolute;display:block;background:var(--red);color:#fff;text-transform:uppercase;text-align:center;text-decoration:none;border-radius:2px;transition:background .15s}
+.btn:hover{background:var(--red-d)}
+:focus-visible{outline:2px solid #ffb347;outline-offset:2px}
+
+/* ============ HERO (1532 x 518) ============ */
+.hero{height:518px;background:#6f9a45 url(img/hero-bg.jpg) center top/cover no-repeat;color:#fff;overflow:hidden}
+.hero .in{width:754px;height:518px}
+.hero .logo{left:0;top:8px}
+.hero .logo img{width:210px;height:52px}
+.hero .partners{left:277px;top:12px;width:200px;text-align:center;pointer-events:none}
+.hero .partners span{display:block;font-size:10px;line-height:16px}
+.hero .partners b{display:block;font-weight:700;font-size:12.5px;line-height:21px;letter-spacing:.1px}
+.hero .tel{right:1px;top:14px;font-weight:700;font-size:14px;line-height:18px;text-decoration:none;white-space:nowrap}
+.hero .callbtn{right:1px;top:35px;width:119px;height:23px;line-height:23px;font-size:10px;border-radius:3px}
+.hero h1{right:1px;top:126px;font-size:32px;line-height:46px;font-weight:700;text-transform:uppercase;white-space:nowrap;letter-spacing:.1px}
+.hero .sub{right:1px;top:174px;font-size:20px;line-height:26px;text-transform:uppercase;white-space:nowrap}
+.hero .perk{top:244px;width:50px;height:50px}
+.hero .plabel{top:297px;width:140px;text-align:center;font-size:11.5px;line-height:13px}
+.hero .main{right:1px;top:377px;width:240px;height:39px;line-height:39px;font-size:13px}
+.hero .alt{right:1px;top:424px;font-size:13px;line-height:20px;white-space:nowrap}
+.hero .alt a{text-transform:uppercase}
+
+/* ============ ADVANTAGES (376) ============ */
+.adv{height:376px;background:#f6f6f6}
+.adv .in{width:900px;height:376px}
+.adv h2{left:0;right:0;top:55px;text-align:center;font-size:23px;line-height:32px;font-weight:700;text-transform:uppercase}
+.adv .col{width:271px;top:0;height:376px;text-align:center}
+.adv .col img{position:absolute;top:130px;left:50%;transform:translateX(-50%);max-width:none}
+.adv .col h3{position:absolute;left:0;right:0;top:215px;font-size:15px;line-height:22px;font-weight:700}
+.adv .col p{position:absolute;left:0;right:0;top:252px;font-size:11.5px;line-height:14.7px;white-space:nowrap}
+.adv .col p a{color:var(--red);font-family:"Comfortaa","Open Sans",sans-serif;font-size:11px}
+
+/* ============ FORM (542) ============ */
+.lead{height:542px;background:#3d3d3d url(img/form-bg.jpg) center top/cover no-repeat;color:#fff}
+.lead .in{width:754px;height:542px}
+.lead h2{left:2px;top:77px;font-size:27px;line-height:45px;font-weight:700;text-transform:uppercase;white-space:nowrap}
+.lead p{left:2px;top:170px;font-size:16px;line-height:25px;white-space:nowrap}
+.lead p b{font-weight:600}
+.lead input{position:absolute;left:2px;width:240px;height:40px;padding:0 16px;border:0;border-radius:3px;background:#fff;color:#222;font:400 11px "Comfortaa","Open Sans",sans-serif}
+.lead input::placeholder{color:#3a3a3a;opacity:1}
+.lead .b{left:2px;top:410px;width:240px;height:44px;line-height:44px;font-size:13px;border:0}
+.lead .msg{left:2px;top:464px;width:340px;font-size:13px;line-height:18px}
+.lead .msg.err{color:#ffb3ad}
+.lead .msg.ok{color:#fff;background:rgba(0,0,0,.45);border-left:4px solid #6fcf6f;padding:10px 14px}
+
+/* ============ CATALOG ============ */
+.cat{height:1324px;background:#fff}
+.cat .in{width:660px;height:1324px}
+.cat .sl{left:72px;top:78px;width:519px;height:365px;overflow:hidden}
+.cat .tr{display:flex;height:100%;transition:transform .45s ease}
+.cat .tr > div{min-width:519px;height:365px;background:#fff}
+.cat .tr img{width:519px;height:365px}
+.cat .arr{top:228px;width:40px;height:52px;display:grid;place-items:center}
+.cat .arr svg{width:26px;height:40px;fill:none;stroke:var(--red);stroke-width:5.5;stroke-linecap:square;stroke-linejoin:miter}
+.cat .arr.l{left:-4px}.cat .arr.r{right:-4px}
+.cat h2{left:0;right:0;top:519px;text-align:center;font-size:21px;line-height:30px;font-weight:400;text-transform:uppercase;letter-spacing:.2px}
+.cat .tabs{left:0;right:0;top:583px;display:flex;justify-content:center;gap:6px}
+.tab{width:140px;height:34px;border:1px solid #cdcdcd;background:#fff;color:#777;transform:skewX(-21deg);text-transform:uppercase;font-size:13px;transition:background .15s,color .15s}
+.tab span{display:block;transform:skewX(21deg);line-height:32px}
+.tab[aria-selected="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.tab:not([aria-selected="true"]):hover{color:var(--red);border-color:var(--red)}
+.cat .grid{left:6px;top:659px;width:651px;display:grid;grid-template-columns:repeat(3,207px);gap:16px 15px}
+.card{position:relative;width:207px;height:304px;border:1px solid #e8e8e8;background:#fff}
+.card > *{position:absolute}
+.card .pic{top:8px;left:57px;width:96px;height:144px}
+.card h3{top:163px;left:0;right:0;text-align:center;font-size:11px;line-height:14px;font-weight:700}
+.card .d{top:187px;left:0;right:0;text-align:center;font-size:10px;line-height:15px;white-space:nowrap}
+.card .more{top:222px;left:0;right:0;text-align:center;font-size:10px;line-height:14px;color:var(--red);text-transform:uppercase;text-decoration:underline;height:14px}
+.card .hr{top:246px;left:13px;right:12px;height:1px;background:#e8e8e8}
+.card .old{top:264px;left:13px;font-size:9.5px;line-height:12px;color:#888;text-decoration:line-through}
+.card .now{top:274px;left:13px;font-size:14px;line-height:20px;font-weight:700;white-space:nowrap}
+.card .buy{top:262px;left:103px;width:90px;height:27px;line-height:27px;font-size:10px;position:absolute}
+.card .info{top:8px;left:16px;right:10px;font-size:10px;line-height:14.6px;list-style:none}
+.card .info li{position:relative;padding-left:7px;margin-bottom:8px}
+.card .info li::before{content:"";position:absolute;left:-1px;top:6px;width:3px;height:3px;background:var(--red)}
+
+/* ============ REVIEWS (684) ============ */
+.rv{height:684px;background:#fff}
+.rv .in{width:1336px;height:684px}
+.rv h2{left:0;right:0;top:8px;text-align:center;font-size:21px;line-height:30px;font-weight:700;text-transform:uppercase}
+.rv .r{left:340px;width:640px}
+.rv .r img{position:absolute;left:0;top:0;width:118px;height:118px;border-radius:50%}
+.rv .r .t{position:absolute;left:160px;top:-3px;white-space:nowrap}
+.rv .t h3{font-size:14px;line-height:18px;font-weight:700}
+.rv .t .m{font-size:9.5px;line-height:14px;color:#666}
+.rv .t .m b{font-weight:700;color:#444}
+.rv .t p{font-size:11.5px;line-height:17.5px;margin-top:8px}
+.rv .t .m + p{margin-top:7px}
+.rv .rs{font-family:"Comfortaa","Open Sans",sans-serif;font-weight:300;font-size:11px}
+
+/* ============ MAP (435) ============ */
+.map{height:435px;background:#ebe7df url(img/map.jpg) center top no-repeat}
+.map .in{width:1326px;height:435px}
+.map .box{left:503px;top:3px;width:319px;height:187px;background:var(--red);color:#fff;text-align:center}
+.map .box .a{position:absolute;left:0;right:0;top:34px;font-size:13px;line-height:16px}
+.map .box .p{position:absolute;left:0;right:0;top:72px;font-size:13px;line-height:16px;font-weight:700;text-decoration:none}
+.map .box .s{position:absolute;top:113px;width:35px;height:35px}
+.map .box .s img{width:35px;height:35px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="in">
+    <a class="abs logo" href="#top" aria-label="RunSmart — бегай легко, укрепляй здоровье"><img src="img/logo.png" alt="RunSmart"></a>
+    <div class="abs partners cf"><span style="font-family:'Open Sans',sans-serif">Официальный представитель</span><b>Garmin, Polar, Suunto</b></div>
+    <a class="abs tel" href="tel:+74999228974">+7 (499) 922-89-74</a>
+    <a class="btn callbtn" href="#lead">Заказать звонок</a>
+
+    <h1 class="abs">Подбор пульсометра</h1>
+    <div class="abs sub">с учётом вашего уровня подготовки</div>
+
+    <img class="abs perk" style="left:418px" src="img/ico-time.png" alt="">
+    <img class="abs perk" style="left:540px" src="img/ico-delivery.png" alt="">
+    <img class="abs perk" style="left:670px" src="img/ico-chat.png" alt="">
+    <div class="abs plabel" style="left:372px">Время подбора:<br><b style="font-weight:700">10</b> минут</div>
+    <div class="abs plabel" style="left:499px">Бесплатная<br>доставка</div>
+    <div class="abs plabel" style="left:627px">Ответим<br>на все вопросы</div>
+
+    <a class="btn main" href="#lead">Заказать консультацию</a>
+    <div class="abs alt">или <a href="#catalog">перейти в каталог</a></div>
+  </div>
+</header>
+
+<!-- ===== ADVANTAGES ===== -->
+<section class="adv">
+  <div class="in">
+    <h2 class="abs">Наши преимущества</h2>
+    <div class="abs col" style="left:59px">
+      <img src="img/adv-1.png" alt="" width="70" height="62">
+      <h3>Делимся опытом</h3>
+      <p>Наши сотрудники всегда готовы<br>поделиться своим опытом,<br>так как сами бегают полумарафоны,<br>переплыли Босфор, готовятся к<br>соревнованиям по триатлону!</p>
+    </div>
+    <div class="abs col" style="left:329px">
+      <img src="img/adv-2.png" alt="" width="67" height="62">
+      <h3>Заботимся о здоровье</h3>
+      <p>Мы работаем для того,<br>чтобы Ваши занятия спортом шли на<br>пользу Вашему здоровью и были в<br>радость Вам и Вашим близким!</p>
+    </div>
+    <div class="abs col" style="left:600px">
+      <img src="img/adv-3.png" alt="" width="75" height="62">
+      <h3>Учим бегать</h3>
+      <p>Помогаем с обучением<br>правильной технике бега!<br>Дружим с крупнейшей школой бега в<br>России - <a href="#">I LOVE RUNNING.</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LEAD FORM ===== -->
+<section class="lead" id="lead">
+  <div class="in">
+    <h2 class="abs">Получите бесплатную консультацию<br>по подбору пульсометра</h2>
+    <p class="abs">Просто заполните форму заявки<br>и мы перезвоним вам в течении <b>10</b> минут</p>
+    <form id="leadForm" novalidate>
+      <input style="top:250px" type="text" name="name" placeholder="Ваше имя" autocomplete="name" aria-label="Ваше имя">
+      <input style="top:302px" type="tel" name="phone" placeholder="Ваш телефон" autocomplete="tel" aria-label="Ваш телефон">
+      <input style="top:354px" type="email" name="email" placeholder="Ваш E-mail" autocomplete="email" aria-label="Ваш E-mail">
+      <button class="btn b" type="submit">Заказать консультацию</button>
+    </form>
+    <div class="abs msg" id="msg" role="status"></div>
+  </div>
+</section>
+
+<!-- ===== CATALOG ===== -->
+<section class="cat" id="catalog">
+  <div class="in">
+    <div class="abs sl"><div class="tr" id="tr"></div></div>
+    <button class="abs arr l" id="prev" aria-label="Назад"><svg viewBox="0 0 26 40"><path d="M20 3L5 20l15 17"/></svg></button>
+    <button class="abs arr r" id="next" aria-label="Вперёд"><svg viewBox="0 0 26 40"><path d="M6 3l15 17L6 37"/></svg></button>
+
+    <h2 class="abs">Каталог пульсометров</h2>
+    <div class="abs tabs" role="tablist" id="tabs">
+      <button class="tab" role="tab" data-cat="fitness" aria-selected="true"><span>Для фитнеса</span></button>
+      <button class="tab" role="tab" data-cat="run" aria-selected="false"><span>Для бега</span></button>
+      <button class="tab" role="tab" data-cat="tri" aria-selected="false"><span>Для триатлона</span></button>
+    </div>
+    <div class="abs grid" id="grid" role="tabpanel"></div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="rv">
+  <div class="in">
+    <h2 class="abs">Отзывы клиентов</h2>
+
+    <article class="abs r" style="top:75px">
+      <img src="img/ava-1.jpg" alt="Ирина Иванченко">
+      <div class="t">
+        <h3>Ирина Иванченко</h3>
+        <div class="m"><b>2</b> полумарафона</div>
+        <p>Не знала, что себе купить - обратилась к ребятам из <span class="rs">RunSmart</span> - подобрали<br>пульсометр, который подошёл именно под мои цели и финансовые возможности.<br>Через некоторое время решила обновить гаджет - не раздумывая обратилась туда<br>же.</p>
+        <p>Новые цели - новый гаджет!</p>
+        <p>Спасибо, <span class="rs">RunSmart</span>!</p>
+      </div>
+    </article>
+
+    <article class="abs r" style="top:269px">
+      <img src="img/ava-2.jpg" alt="Иван Сёмочкин">
+      <div class="t">
+        <h3>Иван Сёмочкин</h3>
+        <div class="m"><b>1</b> полумарафон</div>
+        <p>Крутая штука-пульсометр. Обычно без них бегал. Оказывается только хуже себе<br>делал.<br>Купил пульсометр, ещё в подарок получил тренировку. Со мной вместе провели<br>первую тренировку, научили пользоваться новым гаджетом. Также объяснили<br>основы анатомии, составили план тренировок на месяц вперёд.</p>
+        <p>С ними подготовился к своему первому полумарафону! Спасибо!!!</p>
+      </div>
+    </article>
+
+    <article class="abs r" style="top:459px">
+      <img src="img/ava-3.jpg" alt="Юлия Дашкина">
+      <div class="t">
+        <h3>Юлия Дашкина</h3>
+        <div class="m"><b>2</b> полумарафона</div>
+        <p>Долго не могла начать бегать, т.к. до этого несколько раз начинала, но становилось<br>тяжело и я бросала. От друзей услышала о <span class="rs">RunSmart</span> и о беге с контролем пульса и<br>решила попробовать.</p>
+        <p>Позвонила, ребята поинтересовались моими целями и подобрали очень<br>интересный вариант со скидкой! Теперь бегаю и наслаждаюсь бегом! Пробежала<br>уже 2 полумарафона и несколько более коротких забегов и не намерена<br>останавливаться!</p>
+        <p>Спасибо!!!</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== MAP / CONTACTS ===== -->
+<footer class="map">
+  <div class="in">
+    <div class="abs box">
+      <div class="a">Москва, Мясницкий проезд, д.3с1</div>
+      <a class="p" href="tel:+74999228974">8 (499) 922-89-74</a>
+      <a class="s" style="left:87px" href="#" aria-label="Facebook"><img src="img/soc-1.png" alt=""></a>
+      <a class="s" style="left:142px" href="#" aria-label="Instagram"><img src="img/soc-2.png" alt=""></a>
+      <a class="s" style="left:198px" href="#" aria-label="Pinterest"><img src="img/soc-3.png" alt=""></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* масштаб для узких экранов (макет 1:1 для ширины от 780px) */
+function fit(){document.documentElement.style.setProperty('--z',Math.min(1,window.innerWidth/780).toFixed(4))}
+fit();addEventListener('resize',fit);
+
+/* ---------- каталог: товары (поле img — своя картинка товара) ---------- */
+const WATCH="img/watch.jpg";
+const catalog={
+ fitness:[
+  {n:"Пульсометр Polar FT1",d:["Для первых шагов в тренировках,","основанных на сердечном ритме"],old:4750,now:4500,f:["Вы услышите звуковое оповещение о нужном пульсе во время тренировки;","Вы увидите информативный графический индикатор целевых тренировочных зон пульса;","Также Вы увидите информацию о расходе калорий за тренировку;","Вы сможете посмотреть данные по 10 тренировкам."]},
+  {n:"Пульсометр Suunto M2",d:["Для первых шагов в тренировках,","основанных на сердечном ритме"],old:6690,now:6641,f:["Контроль пульса по зонам нагрузки во время тренировки;","Подсчёт калорий и длительности занятия;","Водозащита до 30 метров;","Удобные кнопки и простая настройка."]},
+  {n:"Пульсометр Polar FT4",d:["Для первых шагов в тренировках,","основанных на сердечном ритме"],old:7390,now:7021,f:["Вы услышите звуковое оповещение о нужном пульсе во время тренировки;","Вы увидите информативный графический индикатор целевых тренировочных зон пульса;","Также Вы увидите информацию о расходе калорий за тренировку;","Вы сможете посмотреть данные по 10 тренировкам."]},
+  {n:"Пульсометр Polar FT1",d:["Для первых шагов в тренировках,","основанных на сердечном ритме"],old:4750,now:4500,f:["Звуковое оповещение о нужном пульсе;","Индикатор целевых тренировочных зон;","Информация о расходе калорий;","Данные по 10 тренировкам."]},
+  {n:"Пульсометр Suunto M2",d:["Для первых шагов в тренировках,","основанных на сердечном ритме"],old:6690,now:6641,f:["Контроль пульса по зонам нагрузки;","Подсчёт калорий и длительности занятия;","Водозащита до 30 метров;","Простая настройка."]},
+  {n:"Пульсометр Polar FT4",d:["Для первых шагов в тренировках,","основанных на сердечном ритме"],old:6690,now:6641,f:["Индекс нагрузки и оценка тренировки;","Подсветка дисплея;","История последних 10 тренировок;","Расход калорий и жиросжигающая зона."]}
+ ],
+ run:[
+  {n:"Пульсометр Polar RC3 GPS",d:["Для бега с контролем скорости,","дистанции и сердечного ритма"],old:13990,now:12990,f:["Встроенный GPS: темп, скорость, дистанция;","Зоны пульса и звуковые сигналы;","Автоматические круги и интервалы;","Загрузка данных на компьютер."]},
+  {n:"Пульсометр Garmin Forerunner 235",d:["Для бега с оптическим датчиком","пульса на запястье"],old:21990,now:19990,f:["Пульс с запястья без нагрудного ремня;","GPS и прогноз времени на забегах;","Умные уведомления;","Приложение Garmin Connect."]},
+  {n:"Пульсометр Polar M200",d:["Лёгкие беговые часы","с запястным датчиком пульса"],old:9990,now:9290,f:["Оптический датчик пульса;","GPS для точной дистанции;","Журнал тренировок в Polar Flow;","Круглосуточный учёт активности."]},
+  {n:"Пульсометр Suunto Ambit2 R",d:["Для бегунов, которые работают","над темпом и выносливостью"],old:17990,now:16490,f:["GPS, высотомер и барометр;","Пользовательские режимы тренировок;","Время восстановления;","Водозащита до 50 метров."]},
+  {n:"Пульсометр Garmin Forerunner 35",d:["Простые и точные часы для тех,","кто только начинает бегать"],old:12490,now:11590,f:["Встроенный GPS и пульсометр;","Подсказки по интервалам бег/ходьба;","Автоматическая загрузка на смартфон;","До 9 дней в режиме часов."]},
+  {n:"Пульсометр Polar M400",d:["Для подготовки к полумарафону","и марафону"],old:15990,now:14590,f:["План подготовки к забегу;","Интервальные тренировки по темпу;","Ежедневный учёт активности;","До 8 часов работы с GPS."]}
+ ],
+ tri:[
+  {n:"Пульсометр Garmin FR 735XT",d:["Мультиспорт: плавание,","велосипед и бег в одних часах"],old:33990,now:31990,f:["Режим триатлона с переключением этапов;","Метрики бега и плавания;","Оптический пульс при плавании;","Оценка VO₂ max и восстановления."]},
+  {n:"Пульсометр Polar V800",d:["Профессиональные часы","для длинных стартов"],old:37990,now:34990,f:["Мультиспорт и смена этапов;","Измерение мощности на велосипеде;","Анализ нагрузки и восстановления;","GPS, высотомер, водозащита 30 м."]},
+  {n:"Пульсометр Suunto Ambit3 Sport",d:["Для подготовки к триатлону","и тренировок на природе"],old:29990,now:27490,f:["Переключение между видами спорта;","Навигация по маршруту;","Анализ темпа и дистанции;","До 15 часов работы с GPS."]},
+  {n:"Пульсометр Garmin Fenix 3",d:["Прочные часы для долгих","тренировок и соревнований"],old:42990,now:39990,f:["Стальной корпус, сапфировое стекло;","Плавание, бег и велоспорт;","Карта и навигация;","До 20 часов с GPS."]},
+  {n:"Пульсометр Polar V650",d:["Велокомпьютер с GPS","и цветным экраном"],old:19990,now:18490,f:["Цветной сенсорный экран;","Скорость и каденс;","Планирование маршрутов;","Датчики мощности."]},
+  {n:"Пульсометр Suunto Traverse",d:["Часы для спортсменов","и путешественников"],old:23990,now:21990,f:["GPS и ГЛОНАСС;","Оповещения о погоде;","Время восхода и заката;","Журнал активностей."]}
+ ]
+};
+const fmt=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g," ")+" руб.";
+const grid=document.getElementById("grid");
+const front=p=>`<img class="pic" src="${p.img||WATCH}" alt="${p.n}">
+  <h3>${p.n}</h3><div class="d">${p.d.join("<br>")}</div>
+  <button class="more" data-a="more">Подробнее</button>`;
+const back=p=>`<ul class="info">${p.f.map(x=>`<li>${x}</li>`).join("")}</ul>
+  <button class="more" data-a="back">Назад</button>`;
+const tail=p=>`<div class="hr"></div><div class="old">${fmt(p.old)}</div><div class="now">${fmt(p.now)}</div>
+  <a class="btn buy" href="#lead" data-a="buy">Купить</a>`;
+let cur="fitness";
+function render(cat){
+  cur=cat;
+  grid.innerHTML=catalog[cat].map((p,i)=>`<article class="card" data-i="${i}">${front(p)}${tail(p)}</article>`).join("");
+}
+grid.addEventListener("click",e=>{
+  const a=e.target.dataset.a,card=e.target.closest(".card"); if(!a||!card)return;
+  const p=catalog[cur][card.dataset.i];
+  if(a==="more") card.innerHTML=back(p)+tail(p);
+  if(a==="back") card.innerHTML=front(p)+tail(p);
+});
+document.getElementById("tabs").addEventListener("click",e=>{
+  const t=e.target.closest(".tab"); if(!t)return;
+  document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected",x===t));
+  render(t.dataset.cat);
+});
+render("fitness");
+
+/* ---------- слайдер ---------- */
+const tr=document.getElementById("tr");
+tr.innerHTML=`<div><img src="img/slide-main.jpg" alt="Polar RC3 GPS"></div>
+ <div style="display:flex;align-items:center;justify-content:center;gap:46px;background:#fff">
+  <img src="${WATCH}" alt="Polar FT1" style="width:176px;height:264px;object-fit:contain">
+  <div style="text-align:center">
+   <img src="${WATCH}" alt="" style="width:84px;height:126px;object-fit:contain;transform:rotate(-18deg);margin:0 auto 14px">
+   <div style="font:700 30px 'Open Sans',Arial;letter-spacing:1px;color:#111">POLAR</div>
+   <div style="font:700 21px 'Open Sans',Arial;color:#b72619">FT1</div>
+  </div>
+ </div>`;
+let si=0;const n=2;
+function go(i){si=(i+n)%n;tr.style.transform=`translateX(-${si*519}px)`}
+document.getElementById("prev").onclick=()=>go(si-1);
+document.getElementById("next").onclick=()=>go(si+1);
+setInterval(()=>go(si+1),6000);
+
+/* ---------- форма ---------- */
+document.getElementById("leadForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const f=e.target,m=document.getElementById("msg");
+  const phone=f.phone.value.replace(/\D/g,"");
+  m.className="abs msg err";
+  if(!f.name.value.trim()){m.textContent="Укажите имя";f.name.focus();return}
+  if(phone.length<10){m.textContent="Введите телефон полностью";f.phone.focus();return}
+  /* отправка на сервер: fetch('/api/lead',{method:'POST',body:new FormData(f)}) */
+  m.className="abs msg ok";m.textContent="Спасибо! Заявка принята — перезвоним в течение 10 минут.";f.reset();
+});
+</script>
+</body>
+</html>
